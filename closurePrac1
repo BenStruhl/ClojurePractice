@@ -1,0 +1,33 @@
+;; HOW TO DEFINE A CLOSURE FUNCTION
+(defn name [x y]
+   (+ x y))
+
+;; calling said function
+(name 3 2)
+
+;; fibnoacci sequence
+(defn fib [n]
+  (if (or (= n 0) (= n 1)) n
+    (+ (fib (- n 1)) (fib (- n 2))))
+
+;; sum a list together
+(defn sum-l [l]
+ (if (empty? l ) 0
+    (+ (first l) (sum-l (rest l)))))
+
+;; square a list
+(defn square-l [l]
+ (if (empty? l ) ()
+    (cons (first l) (square-l (rest l)))))
+
+;; vectors - more efficent, and not mutable
+(def g [a b c])
+
+;; Map - like a dicitonary
+(def q {:apples 3 :girlfriends 0})
+
+;; practice
+(defn get-more-girlfriends [s]
+  (if (> (get s :apples) 10)
+    (assoc s :girlfriends (+ 1 (get s :girlfriends)))
+  s))
